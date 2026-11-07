@@ -1,5 +1,12 @@
 using UnityEngine;
 
+public enum CardRarity
+{
+    Common,
+    Rare,
+    Epic
+}
+
 [CreateAssetMenu(fileName = "CardSO", menuName = "Card/CardSO")]
 public class CardSO : ScriptableObject
 {
@@ -11,11 +18,5 @@ public class CardSO : ScriptableObject
     public float cardDamage;
     public int cardMana;
     public int cardBlock;
-}
-
-public enum CardRarity
-{
-    Common,
-    Rare,
-    Epic
+    public bool isExhausted;
 }
