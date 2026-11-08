@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.03.00">
 	<object class="Event" id="{904e4990-bb92-4dbf-8a90-bcf7676d805a}">
 		<property name="name">
-			<value>mx_amb_menu</value>
+			<value>mx_amb_Menu</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
