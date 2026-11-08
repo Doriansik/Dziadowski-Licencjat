@@ -18,5 +18,9 @@ public class CardSO : ScriptableObject
     public float cardDamage;
     public int cardMana;
     public int cardBlock;
-    public bool isExhausted;
+    public bool isExhaust;
+
+    public int selfWeaknessAmount;
+    public int summonAmount;
+    public int scoopAmount;
 }

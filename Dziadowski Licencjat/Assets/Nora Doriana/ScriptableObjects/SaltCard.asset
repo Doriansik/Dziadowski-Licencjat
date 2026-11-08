@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d6c316ce6f7d445bc59bbd2caf28a3, type: 3}
+  m_Name: SaltCard
+  m_EditorClassIdentifier: Assembly-CSharp::CardSO
+  cardSprite: {fileID: -673306825874429820, guid: 6bfa9fe158b49e447b4ae035d4cc88e5, type: 3}
+  cardRarity: 2
+  cardName: SaltTest
+  cardDescription: Season your game
+  cardDamage: 3
+  cardMana: 1
+  cardBlock: 1
+  isExhaust: 1
+  selfWeaknessAmount: 0
+  summonAmount: 0
+  scoopAmount: 0

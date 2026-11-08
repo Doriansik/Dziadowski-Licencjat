@@ -4,6 +4,8 @@ using UnityEngine;
 public class CardVisualManager : MonoBehaviour
 {
     [SerializeField] private CardManager cardManager;
+    [SerializeField] private PlayZone playZone;
+    [SerializeField] private StatusManager statusManager;
     [SerializeField] private Card cardPrefab;
     [SerializeField] private Transform handTransform;
 
@@ -14,6 +16,13 @@ public class CardVisualManager : MonoBehaviour
         cardManager.OnCardDrawn += SpawnCardInHand;
         cardManager.OnCardDiscarded += RemoveCardFromHand;
         cardManager.OnCardExhausted += RemoveCardFromHand;
+        cardManager.OnCardStatsUpdated += UpdateCardsInHand;
+        playZone.OnCardDropped += HandleCardDropped;
+
+        if (statusManager != null)
+        {
+            statusManager.OnStatusesChanged += UpdateCardsInHand;
+        }
     }
 
     private void OnDisable()
@@ -21,11 +30,38 @@ public class CardVisualManager : MonoBehaviour
         cardManager.OnCardDrawn -= SpawnCardInHand;
         cardManager.OnCardDiscarded -= RemoveCardFromHand;
         cardManager.OnCardExhausted -= RemoveCardFromHand;
+        cardManager.OnCardStatsUpdated -= UpdateCardsInHand;
+        playZone.OnCardDropped -= HandleCardDropped;
+
+        if (statusManager != null)
+        {
+            statusManager.OnStatusesChanged -= UpdateCardsInHand;
+        }
+    }
+
+    private void UpdateCardsInHand()
+    {
+        foreach (KeyValuePair<CardInstance, Card> pair in cardVisuals)
+        {
+            pair.Key.RecalculateStats(statusManager);
+            pair.Value.RefreshStatsVisuals();
+        }
+    }
+
+    private void HandleCardDropped(CardInstance cardInstance)
+    {
+        cardManager.PlayCard(cardInstance);
     }
 
     private void SpawnCardInHand(CardInstance cardInstance)
     {
         Card newCardVisual = Instantiate(cardPrefab, handTransform);
+
+        if (statusManager != null)
+        {
+            cardInstance.RecalculateStats(statusManager);
+        }
+
         newCardVisual.Initialize(cardInstance);
         cardVisuals.Add(cardInstance, newCardVisual);
     }

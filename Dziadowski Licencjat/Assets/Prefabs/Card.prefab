@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6762544605158017632}
   - component: {fileID: 4487382247960664352}
+  - component: {fileID: 2110292802169773672}
+  - component: {fileID: -6458711261487971133}
   m_Layer: 5
   m_Name: Card
   m_TagString: Untagged
@@ -26,7 +28,7 @@ RectTransform:
   m_GameObject: {fileID: 276748457968768401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8205000664538454819}
@@ -58,11 +60,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Card
   cardName: {fileID: 2959474936950093493}
   cardDescription: {fileID: 445578487909874335}
-  cardDamage: {fileID: 1001943213485834974}
-  cardBlock: {fileID: 9174601158609762607}
-  cardMana: {fileID: 8950594954569263314}
+  cardDamage: {fileID: 6689639655726927371}
+  cardBlock: {fileID: 4655613717154417715}
+  cardMana: {fileID: 2302212292176084299}
   cardRarity: {fileID: 6931003406478649469}
   cardSprite: {fileID: 3864497064332705468}
+--- !u!114 &2110292802169773672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276748457968768401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ce5d5aa9e0fcf40b2b12bfcd80491f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardInteraction
+  hoverScale: 2.2
+  defaultScale: 2
+  dragAlpha: 0.6
+  defaultAlpha: 1
+--- !u!225 &-6458711261487971133
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276748457968768401}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1925814260975319127
 GameObject:
   m_ObjectHideFlags: 0

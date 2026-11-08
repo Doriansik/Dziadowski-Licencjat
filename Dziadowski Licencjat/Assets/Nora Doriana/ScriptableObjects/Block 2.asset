@@ -17,6 +17,9 @@ MonoBehaviour:
   cardName: Tarcza Chwaly (Block)
   cardDescription: Michal jest bardzo szlachetny
   cardDamage: 0
-  cardMana: 0
-  cardBlock: 0
-  isExhausted: 0
+  cardMana: 1
+  cardBlock: 4
+  isExhaust: 0
+  selfWeaknessAmount: 1
+  summonAmount: 1
+  scoopAmount: 2

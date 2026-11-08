@@ -12,15 +12,24 @@ public class Card : MonoBehaviour
     [SerializeField] private TextMeshProUGUI cardRarity;
     [SerializeField] private Image cardSprite;
 
+    public CardInstance CurrentInstance { get; private set; }
+
     public void Initialize(CardInstance cardInstance)
     {
+        CurrentInstance = cardInstance;
+
         cardSprite.sprite = cardInstance.BaseCard.cardSprite;
         cardName.text = cardInstance.BaseCard.cardName;
         cardDescription.text = cardInstance.BaseCard.cardDescription;
         cardRarity.text = cardInstance.BaseCard.cardRarity.ToString();
 
-        cardDamage.text = cardInstance.CurrentDamage.ToString();
-        cardMana.text = cardInstance.CurrentMana.ToString();
-        cardBlock.text = cardInstance.CurrentBlock.ToString();
+        RefreshStatsVisuals();
+    }
+
+    public void RefreshStatsVisuals()
+    {
+        cardDamage.text = CurrentInstance.CurrentDamage.ToString();
+        cardMana.text = CurrentInstance.CurrentMana.ToString();
+        cardBlock.text = CurrentInstance.CurrentBlock.ToString();
     }
 }

@@ -17,6 +17,9 @@ MonoBehaviour:
   cardName: Wielki wieloryb (Block)
   cardDescription: Michal to wielka ryba
   cardDamage: 0
-  cardMana: 0
-  cardBlock: 0
-  isExhausted: 0
+  cardMana: 4
+  cardBlock: 5
+  isExhaust: 1
+  selfWeaknessAmount: 4
+  summonAmount: 1
+  scoopAmount: 0

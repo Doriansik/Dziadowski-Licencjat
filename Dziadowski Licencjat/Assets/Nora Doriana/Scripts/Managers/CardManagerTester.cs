@@ -4,7 +4,14 @@ using UnityEngine;
 public class CardManagerTester : MonoBehaviour
 {
     [SerializeField] private CardManager cardManager;
+    [SerializeField] private StatusManager statusManager;
+    [SerializeField] private ManaManager manaManager;
     [SerializeField] private List<CardSO> startingDeck;
+    [SerializeField] private int startingHandSize = 5;
+    [SerializeField] private int cardsDrawnPerTurn = 5;
+    [SerializeField] private int testVulnerabilityAmount = 50;
+    [SerializeField] private int testWeaknessAmount = 25;
+    [SerializeField] private int startingMana = 3;
 
     private void Start()
     {
@@ -15,21 +22,30 @@ public class CardManagerTester : MonoBehaviour
         cardManager.OnCardExhausted += HandleCardExhausted;
         cardManager.OnDeckReshuffled += HandleDeckReshuffled;
 
+        manaManager.Initialize(startingMana);
         cardManager.Initialize(startingDeck, shuffler);
+        cardManager.StartBattle(startingHandSize);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-
-            int cardsToDraw = 1;
-            cardManager.DrawCards(cardsToDraw);
+            manaManager.RestoreFullMana();
+            cardManager.StartNewTurn(cardsDrawnPerTurn);
+            Debug.Log("Started new turn! Mana restored.");
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.V))
         {
-            cardManager.DiscardEntireHand();
+            statusManager.AddEnemyVulnerability(testVulnerabilityAmount);
+            Debug.Log("Added Enemy Vulnerability!");
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            statusManager.AddPlayerWeakness(testWeaknessAmount);
+            Debug.Log("Added Player Weakness!");
         }
     }
 
@@ -50,7 +66,7 @@ public class CardManagerTester : MonoBehaviour
 
     private void HandleDeckReshuffled()
     {
-        Debug.Log("Deck Reshuffled");
+        Debug.Log("Deck reshuffled!");
     }
 
     private void OnDestroy()
