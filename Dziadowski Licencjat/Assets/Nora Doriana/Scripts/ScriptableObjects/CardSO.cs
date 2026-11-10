@@ -15,12 +15,14 @@ public class CardSO : ScriptableObject
     public string cardName;
     [TextArea]
     public string cardDescription;
-    public float cardDamage;
+    public int cardDamage;
     public int cardMana;
     public int cardBlock;
     public bool isExhaust;
 
     public int selfWeaknessAmount;
+    public int enemyWeaknessAmount;
+    public int enemyVulnerabilityAmount;
     public int summonAmount;
     public int scoopAmount;
 }
