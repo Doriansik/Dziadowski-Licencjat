@@ -10,6 +10,7 @@ public class CardManager : MonoBehaviour
     public event Action<CardInstance> OnCardExhausted;
     public event Action OnDeckReshuffled;
     public event Action OnCardStatsUpdated;
+    public event Action OnPileSizesChanged;
 
     private List<CardInstance> drawPile = new List<CardInstance>();
     private List<CardInstance> hand = new List<CardInstance>();
@@ -19,6 +20,9 @@ public class CardManager : MonoBehaviour
     private IDeckShuffler deckShuffler;
 
     public IReadOnlyList<CardInstance> Hand => hand;
+    public int DrawPileCount => drawPile.Count;
+    public int DiscardPileCount => discardPile.Count;
+    public int ExhaustPileCount => exhaustPile.Count;
 
     public void Initialize(IEnumerable<CardSO> playerDeck, IDeckShuffler shuffler)
     {
@@ -35,6 +39,7 @@ public class CardManager : MonoBehaviour
         }
 
         deckShuffler.Shuffle(drawPile);
+        OnPileSizesChanged?.Invoke();
     }
 
     public void StartBattle(int initialDrawAmount)
@@ -76,6 +81,8 @@ public class CardManager : MonoBehaviour
             OnCardDrawn?.Invoke(drawnCard);
             currentDrawnAmount++;
         }
+
+        OnPileSizesChanged?.Invoke();
     }
 
     public void PlayCard(CardInstance card)
@@ -95,6 +102,8 @@ public class CardManager : MonoBehaviour
                 discardPile.Add(card);
                 OnCardDiscarded?.Invoke(card);
             }
+
+            OnPileSizesChanged?.Invoke();
         }
     }
 
@@ -105,6 +114,7 @@ public class CardManager : MonoBehaviour
             hand.Remove(card);
             discardPile.Add(card);
             OnCardDiscarded?.Invoke(card);
+            OnPileSizesChanged?.Invoke();
         }
     }
 
@@ -115,6 +125,7 @@ public class CardManager : MonoBehaviour
             hand.Remove(card);
             exhaustPile.Add(card);
             OnCardExhausted?.Invoke(card);
+            OnPileSizesChanged?.Invoke();
         }
     }
 

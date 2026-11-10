@@ -16,10 +16,12 @@ MonoBehaviour:
   cardRarity: 0
   cardName: Walone konie (Attack)
   cardDescription: Michal lubi pojezdzic konno
-  cardDamage: 1
+  cardDamage: 3
   cardMana: 3
   cardBlock: 0
   isExhaust: 0
-  selfWeaknessAmount: 4
+  selfWeaknessAmount: 0
+  enemyWeaknessAmount: 3
+  enemyVulnerabilityAmount: 0
   summonAmount: 1
   scoopAmount: 0
