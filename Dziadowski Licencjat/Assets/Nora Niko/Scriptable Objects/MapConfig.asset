@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584276c13d0ef08418d40c3f554a4c61, type: 3}
+  m_Name: MapConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Map.MapConfigSO
+  totalFloors: 15
+  gridWidth: 5
+  numOfPreBossNodes: 2
+  numOfStartingNodes: 2
+  xSpacing: 180
+  ySpacing: 150
+  randomPositionOffset: 25
+  probWalka: 0.4
+  probElita: 0.15
+  probEvent: 0.15
+  probZerca: 0.15
+  probWiedzma: 0.15
