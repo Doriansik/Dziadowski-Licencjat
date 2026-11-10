@@ -16,10 +16,12 @@ MonoBehaviour:
   cardRarity: 0
   cardName: Palona Guma (Attack)
   cardDescription: Michal pali gume swoim rowerem
-  cardDamage: 5
+  cardDamage: 7
   cardMana: 3
   cardBlock: 0
   isExhaust: 1
   selfWeaknessAmount: 1
+  enemyWeaknessAmount: 0
+  enemyVulnerabilityAmount: 4
   summonAmount: 3
   scoopAmount: 0
