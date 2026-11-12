@@ -16,9 +16,9 @@ MonoBehaviour:
   cardRarity: 0
   cardName: "Obrona Przodk\xF3w"
   cardDescription: Zyskaj 5/8 pkt. Bloku
-  cardDamage: 5
+  cardDamage: 0
   cardMana: 1
-  cardBlock: 0
+  cardBlock: 5
   isExhaust: 0
   selfWeaknessTurns: 0
   enemyWeaknessTurns: 0
