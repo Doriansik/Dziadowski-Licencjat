@@ -9,9 +9,6 @@ public class CardInstance
 
     private int bonusDamage;
 
-    private const float BaseMultiplier = 1f;
-    private const float PercentageDivisor = 100f;
-
     public CardInstance(CardSO baseCard)
     {
         BaseCard = baseCard;
@@ -30,8 +27,8 @@ public class CardInstance
 
     public void RecalculateStats(StatusManager statusManager)
     {
-        float vulnerabilityMultiplier = BaseMultiplier + (statusManager.EnemyVulnerabilityPercentage / PercentageDivisor);
-        float weaknessMultiplier = BaseMultiplier - (statusManager.PlayerWeaknessPercentage / PercentageDivisor);
+        float vulnerabilityMultiplier = statusManager.GetEnemyVulnerabilityMultiplier();
+        float weaknessMultiplier = statusManager.GetPlayerDamageMultiplier();
 
         float rawDamage = (BaseCard.cardDamage + bonusDamage) * vulnerabilityMultiplier * weaknessMultiplier;
         CurrentDamage = Mathf.RoundToInt(rawDamage);

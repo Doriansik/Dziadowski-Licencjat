@@ -2,6 +2,7 @@ using UnityEngine;
 
 public enum CardRarity
 {
+    Starter,
     Common,
     Rare,
     Epic
@@ -20,9 +21,10 @@ public class CardSO : ScriptableObject
     public int cardBlock;
     public bool isExhaust;
 
-    public int selfWeaknessAmount;
-    public int enemyWeaknessAmount;
-    public int enemyVulnerabilityAmount;
+    public int selfWeaknessTurns;
+    public int enemyWeaknessTurns;
+    public int enemyVulnerabilityTurns;
     public int summonAmount;
     public int scoopAmount;
+    public int discardFromDrawPileAmount;
 }

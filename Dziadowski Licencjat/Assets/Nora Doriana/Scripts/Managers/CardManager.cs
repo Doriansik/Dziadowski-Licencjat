@@ -85,6 +85,33 @@ public class CardManager : MonoBehaviour
         OnPileSizesChanged?.Invoke();
     }
 
+    public void DiscardFromDrawPile(int amount)
+    {
+        int minimumCardsToDiscard = 0;
+        int currentDiscardedAmount = minimumCardsToDiscard;
+
+        while (currentDiscardedAmount < amount)
+        {
+            int emptyPileThreshold = 0;
+
+            if (drawPile.Count == emptyPileThreshold)
+            {
+                break;
+            }
+
+            int topCardIndex = drawPile.Count - 1;
+            CardInstance cardToDiscard = drawPile[topCardIndex];
+
+            drawPile.RemoveAt(topCardIndex);
+            discardPile.Add(cardToDiscard);
+
+            OnCardDiscarded?.Invoke(cardToDiscard);
+            currentDiscardedAmount++;
+        }
+
+        OnPileSizesChanged?.Invoke();
+    }
+
     public void PlayCard(CardInstance card)
     {
         if (hand.Contains(card))

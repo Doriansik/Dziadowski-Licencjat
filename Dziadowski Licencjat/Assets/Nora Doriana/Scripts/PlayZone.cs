@@ -13,6 +13,7 @@ public class PlayZone : MonoBehaviour, IDropHandler
     [SerializeField] private ManaManager manaManager;
     [SerializeField] private EnemyManager enemyManager;
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private MinionManager minionManager;
     [SerializeField] private CardSO saltCardData;
 
     public void OnDrop(PointerEventData eventData)
@@ -60,27 +61,27 @@ public class PlayZone : MonoBehaviour, IDropHandler
             actionQueueManager.AddAction(blockAction);
         }
 
-        if (cardInstance.BaseCard.selfWeaknessAmount > minimumThreshold)
+        if (cardInstance.BaseCard.selfWeaknessTurns > minimumThreshold)
         {
-            ApplyWeaknessAction weaknessAction = new ApplyWeaknessAction(statusManager, cardInstance.BaseCard.selfWeaknessAmount);
+            ApplyWeaknessAction weaknessAction = new ApplyWeaknessAction(statusManager, cardInstance.BaseCard.selfWeaknessTurns);
             actionQueueManager.AddAction(weaknessAction);
         }
 
-        if (cardInstance.BaseCard.enemyWeaknessAmount > minimumThreshold)
+        if (cardInstance.BaseCard.enemyWeaknessTurns > minimumThreshold)
         {
-            ApplyEnemyWeaknessAction enemyWeaknessAction = new ApplyEnemyWeaknessAction(statusManager, cardInstance.BaseCard.enemyWeaknessAmount);
+            ApplyEnemyWeaknessAction enemyWeaknessAction = new ApplyEnemyWeaknessAction(statusManager, cardInstance.BaseCard.enemyWeaknessTurns);
             actionQueueManager.AddAction(enemyWeaknessAction);
         }
 
-        if (cardInstance.BaseCard.enemyVulnerabilityAmount > minimumThreshold)
+        if (cardInstance.BaseCard.enemyVulnerabilityTurns > minimumThreshold)
         {
-            ApplyEnemyVulnerabilityAction enemyVulnerabilityAction = new ApplyEnemyVulnerabilityAction(statusManager, cardInstance.BaseCard.enemyVulnerabilityAmount);
+            ApplyEnemyVulnerabilityAction enemyVulnerabilityAction = new ApplyEnemyVulnerabilityAction(statusManager, cardInstance.BaseCard.enemyVulnerabilityTurns);
             actionQueueManager.AddAction(enemyVulnerabilityAction);
         }
 
         if (cardInstance.BaseCard.summonAmount > minimumThreshold)
         {
-            SummonAction summonAction = new SummonAction(cardInstance.BaseCard.summonAmount);
+            SummonAction summonAction = new SummonAction(minionManager, cardInstance.BaseCard.summonAmount);
             actionQueueManager.AddAction(summonAction);
         }
 
@@ -88,6 +89,12 @@ public class PlayZone : MonoBehaviour, IDropHandler
         {
             ScoopAction scoopAction = new ScoopAction(cardManager, saltCardData, cardInstance.BaseCard.scoopAmount);
             actionQueueManager.AddAction(scoopAction);
+        }
+
+        if (cardInstance.BaseCard.discardFromDrawPileAmount > minimumThreshold)
+        {
+            DiscardFromDrawPileAction discardAction = new DiscardFromDrawPileAction(cardManager, cardInstance.BaseCard.discardFromDrawPileAmount);
+            actionQueueManager.AddAction(discardAction);
         }
     }
 }

@@ -8,27 +8,30 @@ public class StartTurnAction : IGameAction
     private ManaManager manaManager;
     private CardManager cardManager;
     private CombatManager combatManager;
+    private StatusManager statusManager;
     private int drawAmount;
 
-    public StartTurnAction(PlayerManager playerManager, ManaManager manaManager, CardManager cardManager, CombatManager combatManager, int drawAmount)
+    public StartTurnAction(PlayerManager playerManager, ManaManager manaManager, CardManager cardManager, CombatManager combatManager, StatusManager statusManager, int drawAmount)
     {
         this.playerManager = playerManager;
         this.manaManager = manaManager;
         this.cardManager = cardManager;
         this.combatManager = combatManager;
+        this.statusManager = statusManager;
         this.drawAmount = drawAmount;
         IsCompleted = false;
     }
 
     public void Execute()
     {
+        statusManager.DecreaseEnemyStatuses();
+
         manaManager.RestoreFullMana();
         playerManager.ResetBlock();
         cardManager.StartNewTurn(drawAmount);
 
         combatManager.StartPlayerTurn();
 
-        Debug.Log("Turn reset actions completed.");
         IsCompleted = true;
     }
 

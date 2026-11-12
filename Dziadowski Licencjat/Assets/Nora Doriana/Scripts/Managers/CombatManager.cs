@@ -1,8 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
+    public event Action OnCombatVictory;
+    public event Action OnCombatDefeat;
+
     [SerializeField] private CardManager cardManager;
     [SerializeField] private ManaManager manaManager;
     [SerializeField] private PlayerManager playerManager;
@@ -10,7 +14,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private ActionQueueManager actionQueueManager;
     [SerializeField] private StatusManager statusManager;
 
-    [SerializeField] private List<CardSO> startingDeck;
+    [SerializeField] private List<DeckEntry> startingDeck;
     [SerializeField] private EnemySO startingEnemy;
 
     [SerializeField] private int startingHandSize = 5;
@@ -27,7 +31,9 @@ public class CombatManager : MonoBehaviour
         playerManager.OnDied += HandlePlayerDied;
 
         StandardDeckShuffler shuffler = new StandardDeckShuffler();
-        cardManager.Initialize(startingDeck, shuffler);
+
+        List<CardSO> unpackedDeck = UnpackStartingDeck();
+        cardManager.Initialize(unpackedDeck, shuffler);
 
         playerManager.Initialize(startingPlayerHealth);
         manaManager.Initialize(startingMana);
@@ -48,7 +54,6 @@ public class CombatManager : MonoBehaviour
         }
 
         CurrentState = CombatState.PlayerTurn;
-        Debug.Log("Player turn started!");
     }
 
     public void EndPlayerTurn()
@@ -59,24 +64,43 @@ public class CombatManager : MonoBehaviour
         }
 
         CurrentState = CombatState.EnemyTurn;
-        Debug.Log("Player turn ended. Enemy turn starting.");
 
+        statusManager.DecreasePlayerStatuses();
         enemyManager.ExecuteEnemyTurn();
 
-        StartTurnAction startTurnAction = new StartTurnAction(playerManager, manaManager, cardManager, this, cardsDrawnPerTurn);
+        StartTurnAction startTurnAction = new StartTurnAction(playerManager, manaManager, cardManager, this, statusManager, cardsDrawnPerTurn);
         actionQueueManager.AddAction(startTurnAction);
+    }
+
+    private List<CardSO> UnpackStartingDeck()
+    {
+        List<CardSO> unpackedDeck = new List<CardSO>();
+        int startingIndex = 0;
+
+        foreach (DeckEntry entry in startingDeck)
+        {
+            if (entry.cardData != null)
+            {
+                for (int i = startingIndex; i < entry.amount; i++)
+                {
+                    unpackedDeck.Add(entry.cardData);
+                }
+            }
+        }
+
+        return unpackedDeck;
     }
 
     private void HandlePlayerDied()
     {
         CurrentState = CombatState.Defeat;
-        Debug.Log("Defeat! Player died.");
+        OnCombatDefeat?.Invoke();
     }
 
     private void HandleEnemyDied()
     {
         CurrentState = CombatState.Victory;
-        Debug.Log("Victory! Enemy died.");
+        OnCombatVictory?.Invoke();
     }
 
     private void OnDestroy()

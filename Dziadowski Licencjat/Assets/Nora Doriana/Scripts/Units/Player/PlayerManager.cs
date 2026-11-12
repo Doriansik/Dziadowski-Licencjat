@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
     public event Action<int> OnBlockChanged;
     public event Action OnDied;
 
+    [SerializeField] private MinionManager minionManager;
+
     public int CurrentHealth { get; private set; }
     public int MaxHealth { get; private set; }
     public int CurrentBlock { get; private set; }
@@ -25,16 +27,27 @@ public class PlayerManager : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        int minimumHealth = 0;
+        int minimumDamageThreshold = 0;
+        int remainingDamage = amount;
 
-        if (CurrentBlock >= amount)
+        if (minionManager != null && minionManager.IsAlive)
         {
-            CurrentBlock -= amount;
+            remainingDamage = minionManager.TakeDamage(amount);
+        }
+
+        if (remainingDamage <= minimumDamageThreshold)
+        {
+            return;
+        }
+
+        if (CurrentBlock >= remainingDamage)
+        {
+            CurrentBlock -= remainingDamage;
             OnBlockChanged?.Invoke(CurrentBlock);
             return;
         }
 
-        int remainingDamage = amount - CurrentBlock;
+        remainingDamage -= CurrentBlock;
         int emptyBlock = 0;
 
         CurrentBlock = emptyBlock;
@@ -42,9 +55,9 @@ public class PlayerManager : MonoBehaviour
 
         CurrentHealth -= remainingDamage;
 
-        if (CurrentHealth <= minimumHealth)
+        if (CurrentHealth <= minimumDamageThreshold)
         {
-            CurrentHealth = minimumHealth;
+            CurrentHealth = minimumDamageThreshold;
             OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
             OnDied?.Invoke();
         }

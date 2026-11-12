@@ -25,20 +25,20 @@ public class CombatStatusUI : MonoBehaviour
 
     private void UpdateStatusTexts()
     {
-        playerStatusText.text = FormatStatus("Weakness", statusManager.PlayerWeaknessPercentage) +
-                                FormatStatus("Vulnerability", statusManager.PlayerVulnerabilityPercentage);
+        playerStatusText.text = FormatStatus("Weakness", statusManager.PlayerWeaknessTurns) +
+                                FormatStatus("Vulnerability", statusManager.PlayerVulnerabilityTurns);
 
-        enemyStatusText.text = FormatStatus("Weakness", statusManager.EnemyWeaknessPercentage) +
-                               FormatStatus("Vulnerability", statusManager.EnemyVulnerabilityPercentage);
+        enemyStatusText.text = FormatStatus("Weakness", statusManager.EnemyWeaknessTurns) +
+                               FormatStatus("Vulnerability", statusManager.EnemyVulnerabilityTurns);
     }
 
-    private string FormatStatus(string statusName, int percentageValue)
+    private string FormatStatus(string statusName, int turnsValue)
     {
         int minimumValue = 0;
 
-        if (percentageValue > minimumValue)
+        if (turnsValue > minimumValue)
         {
-            return statusName + ": " + percentageValue + "%\n";
+            return statusName + ": " + turnsValue + "\n";
         }
 
         return string.Empty;
