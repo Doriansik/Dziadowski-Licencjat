@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Uderzenie Zaduszne
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
-  cardName: 
-  cardDescription: 
+  cardRarity: 1
+  cardName: Uderzenie Zaduszne
+  cardDescription: "Zadaj 9 pkt. obra\u017Ce\u0144, dobierz 1/2 kart\u0119, Wyczerpanie"
   cardDamage: 0
   cardMana: 0
   cardBlock: 0

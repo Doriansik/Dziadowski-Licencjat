@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Ostatnie Tchnienie
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
+  cardRarity: 1
   cardName: Ostatnie Tchnienie
-  cardDescription: 
+  cardDescription: Zyskaj (1/2 pkt. many), Wyczerpanie
   cardDamage: 0
   cardMana: 0
   cardBlock: 0

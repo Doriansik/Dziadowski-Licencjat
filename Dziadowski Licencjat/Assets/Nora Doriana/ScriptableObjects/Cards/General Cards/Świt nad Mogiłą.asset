@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u015Awit nad Mogi\u0142\u0105"
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
+  cardRarity: 1
   cardName: "\u015Awit nad Mogi\u0142\u0105"
   cardDescription: 
   cardDamage: 0

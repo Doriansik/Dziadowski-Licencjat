@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Oczyszczenie
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
-  cardName: 
-  cardDescription: 
+  cardRarity: 2
+  cardName: Oczyszczenie
+  cardDescription: "Wyczerp 1 kart\u0119 z r\u0119ki, dobierz 2/3 karty"
   cardDamage: 0
   cardMana: 0
   cardBlock: 0

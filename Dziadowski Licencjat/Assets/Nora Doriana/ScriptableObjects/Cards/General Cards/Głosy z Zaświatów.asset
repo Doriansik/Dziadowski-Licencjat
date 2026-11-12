@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: "G\u0142osy z Za\u015Bwiat\xF3w"
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
-  cardName: 
-  cardDescription: 
+  cardRarity: 2
+  cardName: "G\u0142osy z Za\u015Bwiat\xF3w"
+  cardDescription: "Na pocz\u0105tku tury jest zagrywany losowy atak"
   cardDamage: 0
   cardMana: 0
   cardBlock: 0

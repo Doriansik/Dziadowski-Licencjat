@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Ofiara
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
-  cardName: 
-  cardDescription: 
+  cardRarity: 3
+  cardName: Ofiara
+  cardDescription: "Je\u017Celi Duszyczka \u017Cyje, umiera i zyskujesz blok r\xF3wny
+    dwukrotno\u015Bci jej maks. P\u017B"
   cardDamage: 0
   cardMana: 0
   cardBlock: 0

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: "Zew z Tamtego \u015Awiata"
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
-  cardName: 
-  cardDescription: 
+  cardRarity: 1
+  cardName: "Zew z Tamtego \u015Awiata"
+  cardDescription: "Dobierz 2 karty, Wyczerpanie/ brak Wyczerpania (t\u0105 kart\u0119
+    mo\u017Cna zagra\u0107 raz)"
   cardDamage: 0
   cardMana: 0
   cardBlock: 0

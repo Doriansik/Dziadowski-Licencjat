@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Niezgaszony Znicz
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
-  cardName: 
-  cardDescription: 
+  cardRarity: 3
+  cardName: Niezgaszony Znicz
+  cardDescription: "Zyskaj (1 pkt. many) na pocz\u0105tku ka\u017Cdej tury"
   cardDamage: 0
   cardMana: 0
   cardBlock: 0

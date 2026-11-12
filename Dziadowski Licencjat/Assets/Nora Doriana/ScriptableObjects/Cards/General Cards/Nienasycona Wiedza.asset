@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Nienasycona Wiedza
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
-  cardName: 
-  cardDescription: 
+  cardRarity: 2
+  cardName: Nienasycona Wiedza
+  cardDescription: Po dobraniu 15 kart zyskaj (1/2 pkt. many)
   cardDamage: 0
   cardMana: 0
   cardBlock: 0

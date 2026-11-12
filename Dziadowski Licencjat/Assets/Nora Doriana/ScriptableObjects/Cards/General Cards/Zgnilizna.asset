@@ -13,16 +13,17 @@ MonoBehaviour:
   m_Name: Zgnilizna
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
-  cardName: 
-  cardDescription: 
+  cardRarity: 2
+  cardName: Zgnilizna
+  cardDescription: "Na\u0142\xF3\u017C 2 pkt. S\u0142abo\u015Bci i Wra\u017Cliwo\u015Bci,
+    Wyczerpanie (t\u0105 kart\u0119 mo\u017Cna zagra\u0107 raz)"
   cardDamage: 0
   cardMana: 0
   cardBlock: 0
   isExhaust: 0
   selfWeaknessTurns: 0
-  enemyWeaknessTurns: 0
-  enemyVulnerabilityTurns: 0
+  enemyWeaknessTurns: 2
+  enemyVulnerabilityTurns: 2
   summonAmount: 0
   scoopAmount: 0
   discardFromDrawPileAmount: 0

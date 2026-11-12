@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Kamienny Nagrobek
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
-  cardRarity: 0
-  cardName: 
-  cardDescription: 
+  cardRarity: 2
+  cardName: Kamienny Nagrobek
+  cardDescription: "Zyskaj 10/16 pkt. Bloku, w nast\u0119pnej turze zyskaj (1 pkt.
+    many) "
   cardDamage: 0
   cardMana: 0
   cardBlock: 0
