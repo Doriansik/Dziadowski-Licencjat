@@ -3,37 +3,44 @@ using UnityEngine;
 public class CardInstance
 {
     public CardSO BaseCard { get; private set; }
-    public int CurrentMana { get; private set; }
+
     public int CurrentDamage { get; private set; }
     public int CurrentBlock { get; private set; }
+    public int CurrentMana { get; private set; }
 
-    private int bonusDamage;
+    public int CurrentMinionDamage { get; private set; }
+    public int CurrentMinionBlock { get; private set; }
 
-    public CardInstance(CardSO baseCard)
+    public CardInstance(CardSO cardData)
     {
-        BaseCard = baseCard;
-        CurrentMana = baseCard.cardMana;
-        CurrentDamage = baseCard.cardDamage;
-        CurrentBlock = baseCard.cardBlock;
+        BaseCard = cardData;
 
-        int defaultBonus = 0;
-        bonusDamage = defaultBonus;
+        CurrentDamage = cardData.cardDamage;
+        CurrentBlock = cardData.cardBlock;
+        CurrentMana = cardData.cardMana;
+
+        CurrentMinionDamage = cardData.minionDamage;
+        CurrentMinionBlock = cardData.minionBlock;
     }
 
     public void AddBonusDamage(int amount)
     {
-        bonusDamage += amount;
+        CurrentDamage += amount;
     }
 
     public void RecalculateStats(StatusManager statusManager)
     {
-        float vulnerabilityMultiplier = statusManager.GetEnemyVulnerabilityMultiplier();
-        float weaknessMultiplier = statusManager.GetPlayerDamageMultiplier();
+        int minimumDamageThreshold = 0;
 
-        float rawDamage = (BaseCard.cardDamage + bonusDamage) * vulnerabilityMultiplier * weaknessMultiplier;
-        CurrentDamage = Mathf.RoundToInt(rawDamage);
+        if (BaseCard.cardDamage > minimumDamageThreshold)
+        {
+            float playerDamageMultiplier = statusManager.GetPlayerDamageMultiplier();
+            float enemyVulnerabilityMultiplier = statusManager.GetEnemyVulnerabilityMultiplier();
 
-        CurrentBlock = BaseCard.cardBlock;
-        CurrentMana = BaseCard.cardMana;
+            float totalDamageMultiplier = playerDamageMultiplier * enemyVulnerabilityMultiplier;
+            float calculatedDamage = BaseCard.cardDamage * totalDamageMultiplier;
+
+            CurrentDamage = Mathf.RoundToInt(calculatedDamage);
+        }
     }
 }

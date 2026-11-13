@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
   cardRarity: 0
+  cardType: 0
   cardName: "Zaproszenie do sto\u0142u"
   cardDescription: "Przywo\u0142aj 5/7 (duszyczka)"
   cardDamage: 0
   cardMana: 1
   cardBlock: 0
   isExhaust: 0
+  minionDamage: 0
+  minionBlock: 0
   selfWeaknessTurns: 0
   enemyWeaknessTurns: 0
   enemyVulnerabilityTurns: 0

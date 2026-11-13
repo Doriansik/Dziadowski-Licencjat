@@ -26,8 +26,8 @@ public class PileCountersUI : MonoBehaviour
 
     private void UpdateCounters()
     {
-        drawPileText.text = "Draw: " + cardManager.DrawPileCount;
-        discardPileText.text = "Discard: " + cardManager.DiscardPileCount;
-        exhaustPileText.text = "Exhaust: " + cardManager.ExhaustPileCount;
+        drawPileText.text = cardManager.DrawPileCount.ToString();
+        discardPileText.text = cardManager.DiscardPileCount.ToString();
+        exhaustPileText.text = cardManager.ExhaustPileCount.ToString();
     }
 }

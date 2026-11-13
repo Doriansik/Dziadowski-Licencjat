@@ -44,9 +44,9 @@ public class PlayZone : MonoBehaviour, IDropHandler
 
     private void GenerateCardActions(CardInstance cardInstance)
     {
-        int damageToDeal = cardInstance.CurrentDamage;
         int minimumThreshold = 0;
 
+        int damageToDeal = cardInstance.CurrentDamage;
         if (damageToDeal > minimumThreshold)
         {
             DamageAction damageAction = new DamageAction(damageToDeal, enemyManager);
@@ -54,11 +54,24 @@ public class PlayZone : MonoBehaviour, IDropHandler
         }
 
         int blockToGain = cardInstance.CurrentBlock;
-
         if (blockToGain > minimumThreshold)
         {
             BlockAction blockAction = new BlockAction(blockToGain, playerManager);
             actionQueueManager.AddAction(blockAction);
+        }
+
+        int minionDamageToDeal = cardInstance.CurrentMinionDamage;
+        if (minionDamageToDeal > minimumThreshold)
+        {
+            MinionDamageAction minionDamageAction = new MinionDamageAction(minionManager, enemyManager, minionDamageToDeal);
+            actionQueueManager.AddAction(minionDamageAction);
+        }
+
+        int minionBlockToGain = cardInstance.CurrentMinionBlock;
+        if (minionBlockToGain > minimumThreshold)
+        {
+            MinionBlockAction minionBlockAction = new MinionBlockAction(minionManager, minionBlockToGain);
+            actionQueueManager.AddAction(minionBlockAction);
         }
 
         if (cardInstance.BaseCard.selfWeaknessTurns > minimumThreshold)

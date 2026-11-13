@@ -17,12 +17,15 @@ public class MinionManager : MonoBehaviour
     {
         MaxHealth = health;
         CurrentHealth = health;
-        IsAlive = true;
 
-        int defaultBlock = 0;
-        CurrentBlock = defaultBlock;
+        if (!IsAlive)
+        {
+            IsAlive = true;
+            int defaultBlock = 0;
+            CurrentBlock = defaultBlock;
+            OnSpawned?.Invoke();
+        }
 
-        OnSpawned?.Invoke();
         OnHealthChanged?.Invoke(CurrentHealth, MaxHealth);
         OnBlockChanged?.Invoke(CurrentBlock);
     }

@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
   cardRarity: 0
+  cardType: 0
   cardName: "Kij W\u0119drowny"
   cardDescription: "Zadaj 6/8 pkt. obra\u017Ce\u0144"
   cardDamage: 6
   cardMana: 1
   cardBlock: 0
   isExhaust: 0
+  minionDamage: 0
+  minionBlock: 0
   selfWeaknessTurns: 0
   enemyWeaknessTurns: 0
   enemyVulnerabilityTurns: 0

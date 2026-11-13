@@ -10,6 +10,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private CardManager cardManager;
     [SerializeField] private ManaManager manaManager;
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private MinionManager minionManager;
     [SerializeField] private EnemyManager enemyManager;
     [SerializeField] private ActionQueueManager actionQueueManager;
     [SerializeField] private StatusManager statusManager;
@@ -68,7 +69,7 @@ public class CombatManager : MonoBehaviour
         statusManager.DecreasePlayerStatuses();
         enemyManager.ExecuteEnemyTurn();
 
-        StartTurnAction startTurnAction = new StartTurnAction(playerManager, manaManager, cardManager, this, statusManager, cardsDrawnPerTurn);
+        StartTurnAction startTurnAction = new StartTurnAction(playerManager, minionManager, manaManager, cardManager, this, statusManager, cardsDrawnPerTurn);
         actionQueueManager.AddAction(startTurnAction);
     }
 

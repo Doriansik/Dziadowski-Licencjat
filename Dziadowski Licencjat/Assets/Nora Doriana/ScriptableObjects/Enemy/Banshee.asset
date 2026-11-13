@@ -25,6 +25,6 @@ MonoBehaviour:
   - intentType: 0
     value: 3
     statusType: 0
-  - intentType: 0
+  - intentType: 1
     value: 4
     statusType: 0

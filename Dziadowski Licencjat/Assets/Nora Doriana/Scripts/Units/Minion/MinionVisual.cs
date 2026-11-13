@@ -1,12 +1,12 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MinionVisual : MonoBehaviour
 {
     [SerializeField] private MinionManager minionManager;
     [SerializeField] private GameObject visualContainer;
     [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField] private TextMeshProUGUI blockText;
 
     private void OnEnable()
     {
@@ -15,6 +15,7 @@ public class MinionVisual : MonoBehaviour
             minionManager.OnSpawned += ShowMinion;
             minionManager.OnDied += HideMinion;
             minionManager.OnHealthChanged += UpdateHealth;
+            minionManager.OnBlockChanged += UpdateBlock;
         }
     }
 
@@ -25,6 +26,7 @@ public class MinionVisual : MonoBehaviour
             minionManager.OnSpawned -= ShowMinion;
             minionManager.OnDied -= HideMinion;
             minionManager.OnHealthChanged -= UpdateHealth;
+            minionManager.OnBlockChanged -= UpdateBlock;
         }
     }
 
@@ -46,5 +48,10 @@ public class MinionVisual : MonoBehaviour
     private void UpdateHealth(int currentHealth, int maxHealth)
     {
         hpText.text = currentHealth + " / " + maxHealth;
+    }
+
+    private void UpdateBlock(int currentBlock)
+    {
+        blockText.text = currentBlock.ToString();
     }
 }
