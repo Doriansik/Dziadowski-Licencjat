@@ -24,6 +24,6 @@ public class ManaUI : MonoBehaviour
 
     private void UpdateManaText(int currentMana, int maxMana)
     {
-        manaText.text = currentMana + " / " + maxMana;
+        manaText.text = currentMana.ToString();
     }
 }

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0dcffc3d75cd6694eae07f721b43d12f
+guid: 9da55bbf8d7df514da35de7faebebfd3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 374596643483582061
-    second: Ikona_Talii_Kart_Spalonych_0
+      213: -5701291210621914182
+    second: FightBackground_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ikona_Talii_Kart_Spalonych_0
+      name: FightBackground_0
       rect:
         serializedVersion: 2
-        x: 68
-        y: 52
-        width: 116
-        height: 150
+        x: 0
+        y: 0
+        width: 1920
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6e74ec99a5d23500800000000000000
-      internalID: 374596643483582061
+      spriteID: ab3f2d5c9d1f0e0b0800000000000000
+      internalID: -5701291210621914182
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ikona_Talii_Kart_Spalonych_0: 374596643483582061
+      FightBackground_0: -5701291210621914182
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardSO
   cardSprite: {fileID: 0}
   cardRarity: 3
+  cardType: 2
   cardName: Niezgaszony Znicz
   cardDescription: "Zyskaj (1 pkt. many) na pocz\u0105tku ka\u017Cdej tury"
   cardDamage: 0
   cardMana: 0
   cardBlock: 0
   isExhaust: 0
+  minionDamage: 0
+  minionBlock: 0
   selfWeaknessTurns: 0
   enemyWeaknessTurns: 0
   enemyVulnerabilityTurns: 0

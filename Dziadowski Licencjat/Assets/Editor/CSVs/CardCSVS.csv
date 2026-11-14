@@ -1,0 +1,6 @@
+Null,1,0,Otwarcie Wrót,"Przywo³aj 6",0,1,0,false,0,0,0,0,0,6,0,0
+Null,1,0,Opieka Cienia,"Przywo³aj 4, zyskaj 7/12 pkt. bloku",0,1,7,false,0,0,0,0,0,4,0,0
+Null,2,0,Wieczór Wspomnieñ,"Przywo³aj 4/6 X razy (x to punkty many)",0,1,0,false,0,0,0,0,0,4,0,0
+Null,2,0,Smutna Rozmowa,"Przywo³aj 3, wyczerp 1 kartê z rêki",0,1,0,false,0,0,0,0,0,3,0,1
+Null,2,0,Ukojony Duch,"Przywo³aj 3/5, Duszyczka przywraca 5/8 P¯",0,2,12,false,0,0,0,0,0,3,0,0
+Null,3,0,Wszystkie Œwiête Noce,"Przywo³aj 20/30, Wyczerpanie",0,2,0,true,0,0,0,0,0,20,0,0
