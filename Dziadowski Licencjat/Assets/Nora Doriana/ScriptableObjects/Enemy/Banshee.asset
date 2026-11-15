@@ -17,7 +17,7 @@ MonoBehaviour:
   maxHealth: 100
   possibleMoves:
   - intentType: 0
-    value: 99
+    value: 18
     statusType: 0
   - intentType: 0
     value: 1

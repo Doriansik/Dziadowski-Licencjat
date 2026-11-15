@@ -1106,7 +1106,7 @@ MonoBehaviour:
   - cardData: {fileID: 11400000, guid: 3e49dec039df2b4408f5dc70b7cedfb2, type: 2}
     amount: 1
   startingEnemy: {fileID: 11400000, guid: 9c0b584cdeb16af4aa6aa39ffb53b9d4, type: 2}
-  startingHandSize: 6
+  startingHandSize: 10
   cardsDrawnPerTurn: 5
   startingMana: 3
   startingPlayerHealth: 100
@@ -4112,68 +4112,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065546335}
   m_CullTransparentMesh: 1
---- !u!1 &1090666340
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1090666341}
-  - component: {fileID: 1090666342}
-  m_Layer: 5
-  m_Name: CardSpawnArea
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1090666341
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090666340}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1611115291}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 85, y: -85}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1090666342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090666340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 0
-  m_Spacing: 50
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
 --- !u!1 &1096791210
 GameObject:
   m_ObjectHideFlags: 0
@@ -5624,6 +5562,7 @@ GameObject:
   - component: {fileID: 1611115291}
   - component: {fileID: 1611115294}
   - component: {fileID: 1611115293}
+  - component: {fileID: 1611115295}
   m_Layer: 5
   m_Name: HandArea
   m_TagString: Untagged
@@ -5642,13 +5581,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1090666341}
+  m_Children: []
   m_Father: {fileID: 1924762619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -251, y: -394.96}
+  m_AnchoredPosition: {x: -0.000061035156, y: -394.95996}
   m_SizeDelta: {x: -1041.7828, y: -789.9082}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1611115293
@@ -5689,6 +5627,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1611115290}
   m_CullTransparentMesh: 1
+--- !u!114 &1611115295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611115290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d70fb6b384d89e4188669b2149756dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HandFanLayout
+  arcRadius: 1200
+  anglePerCard: 7.5
+  maxTotalAngle: 45
+  hoverYOffset: 65
 --- !u!1 &1612981811
 GameObject:
   m_ObjectHideFlags: 0
@@ -6721,8 +6675,9 @@ MonoBehaviour:
   cardManager: {fileID: 1157997654}
   playZone: {fileID: 1030368113}
   statusManager: {fileID: 2146294819}
+  handFanLayout: {fileID: 1611115295}
   cardPrefab: {fileID: 4487382247960664352, guid: 65f6f354051b07848b259982f22fe97c, type: 3}
-  handTransform: {fileID: 1090666341}
+  handTransform: {fileID: 1611115291}
 --- !u!1 &2077824447
 GameObject:
   m_ObjectHideFlags: 0

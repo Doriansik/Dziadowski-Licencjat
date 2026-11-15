@@ -6,6 +6,7 @@ public class CardVisualManager : MonoBehaviour
     [SerializeField] private CardManager cardManager;
     [SerializeField] private PlayZone playZone;
     [SerializeField] private StatusManager statusManager;
+    [SerializeField] private HandFanLayout handFanLayout;
     [SerializeField] private Card cardPrefab;
     [SerializeField] private Transform handTransform;
 
@@ -64,6 +65,12 @@ public class CardVisualManager : MonoBehaviour
 
         newCardVisual.Initialize(cardInstance);
         cardVisuals.Add(cardInstance, newCardVisual);
+
+        CardInteraction cardInteraction = newCardVisual.GetComponent<CardInteraction>();
+        if (handFanLayout != null && cardInteraction != null)
+        {
+            handFanLayout.AddCard(cardInteraction);
+        }
     }
 
     private void RemoveCardFromHand(CardInstance cardInstance)
@@ -71,6 +78,13 @@ public class CardVisualManager : MonoBehaviour
         if (cardVisuals.ContainsKey(cardInstance))
         {
             Card visualToRemove = cardVisuals[cardInstance];
+
+            CardInteraction cardInteraction = visualToRemove.GetComponent<CardInteraction>();
+            if (handFanLayout != null && cardInteraction != null)
+            {
+                handFanLayout.RemoveCard(cardInteraction);
+            }
+
             Destroy(visualToRemove.gameObject);
             cardVisuals.Remove(cardInstance);
         }
