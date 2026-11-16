@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3e86637c9f81f4a818fc6b1042f748, type: 3}
   m_Name: Elita
   m_EditorClassIdentifier: Assembly-CSharp::Map.MapNodeBlueprint
-  sprite: {fileID: 6964937563959018603, guid: 2e3db8a4b70f39743a7aad219895e9da, type: 3}
+  sprite: {fileID: 7317774584524525098, guid: 4250d07e99f5f774bbd1999d0b5577d0, type: 3}
   nodeType: 1

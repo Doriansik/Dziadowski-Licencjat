@@ -5,9 +5,9 @@ namespace Map
 {
     public class MapNodeView : MonoBehaviour
     {
-        [SerializeField] private Image bgImage;        //główne kółko
-        [SerializeField] private Image iconImage;      //dziecko Room_Icon
-        [SerializeField] private Image circleHighlight;//dziecko Highlight
+        [Header("Referencje UI")]
+        [SerializeField] private Image bgImage;   //glowne kołko (tło pokoju)
+        [SerializeField] private Image iconImage; //dziecko Room_Icon (ikona pokoju)
         [SerializeField] private Button button;
 
         public Node Node { get; private set; }
@@ -34,33 +34,25 @@ namespace Map
             Node.state = state;
             switch (state)
             {
-                case NodeStateType.Locked:
-                    if (circleHighlight != null) circleHighlight.gameObject.SetActive(false);
+                case NodeStateType.Locked: //pokoje PRZED nami / niedostepne
                     button.interactable = false;
-                    if (bgImage != null) bgImage.color = new Color(0.25f, 0.25f, 0.25f, 0.7f); //szary zablokowany
-                    if (iconImage != null) iconImage.color = new Color(0.6f, 0.6f, 0.6f, 0.5f);
+                    if (bgImage != null) bgImage.color = new Color(0.75f, 0.75f, 0.75f, 0.6f);
+                    if (iconImage != null) iconImage.color = new Color(1f, 1f, 1f, 0.8f);
+                    transform.localScale = Vector3.one;
                     break;
 
-                case NodeStateType.Attainable:
-                    if (circleHighlight != null)
-                    {
-                        circleHighlight.gameObject.SetActive(true);
-                        circleHighlight.color = Color.white; //biały obrys (kontrast do czarnego tła)
-                    }
+                case NodeStateType.Attainable: //aktywne pokoje DO WYBORU przez gracza
                     button.interactable = true;
-                    if (bgImage != null) bgImage.color = Color.black; //czarne tło aktywnego pokoju
+                    if (bgImage != null) bgImage.color = Color.white;
                     if (iconImage != null) iconImage.color = Color.white;
+                    transform.localScale = Vector3.one * 1.15f; //lekkie powiekszenie ikonki
                     break;
 
-                case NodeStateType.Visited:
-                    if (circleHighlight != null)
-                    {
-                        circleHighlight.gameObject.SetActive(true);
-                        circleHighlight.color = new Color(0.3f, 0.3f, 0.3f, 0.8f);
-                    }
+                case NodeStateType.Visited: //pokoje za nami (odwiedzone)
                     button.interactable = false;
-                    if (bgImage != null) bgImage.color = new Color(0.12f, 0.12f, 0.12f, 0.9f);
-                    if (iconImage != null) iconImage.color = new Color(0.5f, 0.5f, 0.5f, 0.6f);
+                    if (bgImage != null) bgImage.color = new Color(0.55f, 0.55f, 0.55f, 0.85f);
+                    if (iconImage != null) iconImage.color = new Color(0.6f, 0.6f, 0.6f, 0.9f);
+                    transform.localScale = Vector3.one;
                     break;
             }
         }

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3e86637c9f81f4a818fc6b1042f748, type: 3}
   m_Name: Zerca_Odpoczynek
   m_EditorClassIdentifier: Assembly-CSharp::Map.MapNodeBlueprint
-  sprite: {fileID: 4018775350344855029, guid: 50c9202618661bd48bb247b688fe17c5, type: 3}
+  sprite: {fileID: 7482844039919864269, guid: a8b91ace8db87e24691c3d6a3283941a, type: 3}
   nodeType: 3

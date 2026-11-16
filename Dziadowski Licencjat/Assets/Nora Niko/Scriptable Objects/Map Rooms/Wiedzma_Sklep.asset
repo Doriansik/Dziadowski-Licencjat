@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3e86637c9f81f4a818fc6b1042f748, type: 3}
   m_Name: Wiedzma_Sklep
   m_EditorClassIdentifier: Assembly-CSharp::Map.MapNodeBlueprint
-  sprite: {fileID: -4879265456204978876, guid: 93bd436e17e384a48834a385fd634023, type: 3}
+  sprite: {fileID: -5638177525799025559, guid: bf68121fa59d00b45a408f450f90d206, type: 3}
   nodeType: 4

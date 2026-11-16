@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3e86637c9f81f4a818fc6b1042f748, type: 3}
   m_Name: WalkaZwykla
   m_EditorClassIdentifier: Assembly-CSharp::Map.MapNodeBlueprint
-  sprite: {fileID: -3385157395052155191, guid: 4d0603be348045e4aadbc8755a67555f, type: 3}
+  sprite: {fileID: 6594070658170829659, guid: 110e10def4aea964aaaf4108d89d79e5, type: 3}
   nodeType: 0

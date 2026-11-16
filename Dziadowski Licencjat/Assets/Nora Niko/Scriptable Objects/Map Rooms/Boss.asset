@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3e86637c9f81f4a818fc6b1042f748, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: Assembly-CSharp::Map.MapNodeBlueprint
-  sprite: {fileID: 4149089652211277060, guid: e149705ff7ab3b5448f8897dab0ff872, type: 3}
+  sprite: {fileID: 6542827014210482212, guid: 122bb2bc00f5d1845bc026cecc10506b, type: 3}
   nodeType: 5

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3e86637c9f81f4a818fc6b1042f748, type: 3}
   m_Name: Event
   m_EditorClassIdentifier: Assembly-CSharp::Map.MapNodeBlueprint
-  sprite: {fileID: 3497279783527425029, guid: ea8460bf4ab3f8246bb26da048c08769, type: 3}
+  sprite: {fileID: 6552223800278343246, guid: fee4f814dba18e245a1363e66ef1a8c3, type: 3}
   nodeType: 2

@@ -6,13 +6,13 @@ namespace Map
     [CreateAssetMenu(fileName = "MapConfig", menuName = "Map/MapConfig")]
     public class MapConfigSO : ScriptableObject
     {
-        [Header("Rozmiar mapy")]
+        [Header("rozmiar mapy")]
         [Range(12, 16)] public int totalFloors = 15;
         public int gridWidth = 5; //liczba kolumn (lanes)
         public int numOfPreBossNodes = 2; //liczba Żerców przed bossem
         public int numOfStartingNodes = 2; //liczba ścieżek na dole
 
-        [Header("Odstępy w pikselach (na UI)")]
+        [Header("odstępy w pikselach (na UI)")]
         public float xSpacing = 160f;
         public float ySpacing = 130f;
         public float randomPositionOffset = 25f;
