@@ -8,6 +8,7 @@ public class SoulController : MonoBehaviour
     {
         Attack,
         Defense,
+        Heal,
         Idle
     }
 
@@ -41,6 +42,12 @@ public class SoulController : MonoBehaviour
         {
             soulImage.DOColor(Color.blue, 0.5f);
         }
+
+        if (currentStan == SoulStan.Heal)
+        {
+            soulImage.DOColor(Color.green, 0.5f);
+        }
+
     }
 
     public void SetAttackStan()
@@ -58,6 +65,12 @@ public class SoulController : MonoBehaviour
     public void SetIdleStan()
     {
         SetStan(SoulStan.Idle);
+        Debug.Log("nowy stan duszyczki:" + currentStan);
+    }
+
+    public void SetHealStan()
+    {
+        SetStan(SoulStan.Heal);
         Debug.Log("nowy stan duszyczki:" + currentStan);
     }
 }
