@@ -202,8 +202,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1789703305}
-        m_TargetAssemblyTypeName: SoulController, Assembly-CSharp
+      - m_Target: {fileID: 1789703304}
+        m_TargetAssemblyTypeName: SoulColorChange, Assembly-CSharp
         m_MethodName: SetIdleStan
         m_Mode: 1
         m_Arguments:
@@ -609,8 +609,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1789703305}
-        m_TargetAssemblyTypeName: SoulController, Assembly-CSharp
+      - m_Target: {fileID: 1789703304}
+        m_TargetAssemblyTypeName: SoulColorChange, Assembly-CSharp
         m_MethodName: SetDefenseStan
         m_Mode: 1
         m_Arguments:
@@ -742,8 +742,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1789703305}
-        m_TargetAssemblyTypeName: SoulController, Assembly-CSharp
+      - m_Target: {fileID: 1789703304}
+        m_TargetAssemblyTypeName: SoulColorChange, Assembly-CSharp
         m_MethodName: SetHealStan
         m_Mode: 1
         m_Arguments:
@@ -929,6 +929,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 954726872}
   m_CullTransparentMesh: 1
+--- !u!1 &1041783874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1041783876}
+  - component: {fileID: 1041783875}
+  m_Layer: 0
+  m_Name: MinionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1041783875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041783874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 093980f29a09f4b4b8e422d4228949cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MinionManager
+--- !u!4 &1041783876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041783874}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1745, y: 877, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1170620391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1414,7 +1458,7 @@ GameObject:
   - component: {fileID: 1789703301}
   - component: {fileID: 1789703303}
   - component: {fileID: 1789703302}
-  - component: {fileID: 1789703305}
+  - component: {fileID: 1789703304}
   m_Layer: 5
   m_Name: Duszyczka_Icon
   m_TagString: Untagged
@@ -1479,7 +1523,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789703300}
   m_CullTransparentMesh: 1
---- !u!114 &1789703305
+--- !u!114 &1789703304
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1491,7 +1535,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd30d3b498b2a44abb109177e0f9dc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoulController
-  currentStan: 2
+  minionManager: {fileID: 1041783875}
+  soulImage: {fileID: 1789703302}
+  currentStan: 3
 --- !u!1 &1869525065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,8 +1700,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1789703305}
-        m_TargetAssemblyTypeName: SoulController, Assembly-CSharp
+      - m_Target: {fileID: 1789703304}
+        m_TargetAssemblyTypeName: SoulColorChange, Assembly-CSharp
         m_MethodName: SetAttackStan
         m_Mode: 1
         m_Arguments:
@@ -1711,3 +1757,4 @@ SceneRoots:
   - {fileID: 1291107195}
   - {fileID: 1253467244}
   - {fileID: 1869525068}
+  - {fileID: 1041783876}
