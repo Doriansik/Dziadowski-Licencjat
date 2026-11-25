@@ -1,11 +1,19 @@
 using System;
+using UnityEngine;
 
 public class EnemyInstance
 {
+    private const int InitialSequenceIndex = 0;
+    private const int InitialRepeatCount = 1;
+    private const int SequenceStep = 1;
+
     public EnemySO BaseEnemy { get; private set; }
     public int CurrentHealth { get; private set; }
     public int CurrentBlock { get; private set; }
     public EnemyMove CurrentMove { get; private set; }
+    public EnemyMove PreviousMove { get; private set; }
+    public int MoveSequenceIndex { get; private set; }
+    public int ConsecutiveSameMoveCount { get; private set; }
 
     public event Action<int, int> OnHealthChanged;
     public event Action<int> OnBlockChanged;
@@ -19,12 +27,46 @@ public class EnemyInstance
 
         int defaultBlock = 0;
         CurrentBlock = defaultBlock;
+        MoveSequenceIndex = InitialSequenceIndex;
     }
 
     public void SetNextMove(EnemyMove nextMove)
     {
+        if (nextMove == PreviousMove)
+        {
+            ConsecutiveSameMoveCount++;
+        }
+        else
+        {
+            ConsecutiveSameMoveCount = InitialRepeatCount;
+        }
+
+        PreviousMove = nextMove;
         CurrentMove = nextMove;
         OnIntentChanged?.Invoke(CurrentMove);
+    }
+
+    public void AdvanceSequenceIndex(int totalMovesCount)
+    {
+        int minimumCount = 0;
+        if (totalMovesCount <= minimumCount)
+        {
+            return;
+        }
+
+        MoveSequenceIndex = (MoveSequenceIndex + SequenceStep) % totalMovesCount;
+    }
+
+    public void Heal(int amount)
+    {
+        int minimumHealth = 0;
+        if (CurrentHealth <= minimumHealth)
+        {
+            return;
+        }
+
+        CurrentHealth = Mathf.Min(CurrentHealth + amount, BaseEnemy.maxHealth);
+        OnHealthChanged?.Invoke(CurrentHealth, BaseEnemy.maxHealth);
     }
 
     public void TakeDamage(int amount)
