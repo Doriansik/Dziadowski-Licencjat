@@ -11,10 +11,14 @@ public class EnemyManager : MonoBehaviour
 
     public EnemyInstance CurrentEnemy { get; private set; }
 
+    private IEnemyMoveSelector moveSelector;
+
     public void SpawnEnemy(EnemySO enemyData)
     {
         CurrentEnemy = new EnemyInstance(enemyData);
         CurrentEnemy.OnDied += HandleEnemyDied;
+
+        moveSelector = CreateMoveSelector(enemyData.AIMode);
 
         OnEnemySpawned?.Invoke(CurrentEnemy);
         GenerateNextIntent();
@@ -22,13 +26,14 @@ public class EnemyManager : MonoBehaviour
 
     public void GenerateNextIntent()
     {
-        int minimumIndex = 0;
-        int maximumIndex = CurrentEnemy.BaseEnemy.possibleMoves.Count;
-
-        if (maximumIndex > minimumIndex)
+        if (CurrentEnemy == null || moveSelector == null)
         {
-            int randomIndex = UnityEngine.Random.Range(minimumIndex, maximumIndex);
-            EnemyMove nextMove = CurrentEnemy.BaseEnemy.possibleMoves[randomIndex];
+            return;
+        }
+
+        EnemyMove nextMove = moveSelector.SelectNextMove(CurrentEnemy);
+        if (nextMove != null)
+        {
             CurrentEnemy.SetNextMove(nextMove);
         }
     }
@@ -41,9 +46,18 @@ public class EnemyManager : MonoBehaviour
         actionQueueManager.AddAction(turnAction);
     }
 
+    private IEnemyMoveSelector CreateMoveSelector(EnemyAIMode aiMode)
+    {
+        if (aiMode == EnemyAIMode.ScriptedSequence)
+        {
+            return new ScriptedEnemyMoveSelector();
+        }
+
+        return new RandomEnemyMoveSelector();
+    }
+
     private void HandleEnemyDied()
     {
-        Debug.Log("Enemy defeated!");
         CurrentEnemy.OnDied -= HandleEnemyDied;
     }
 

@@ -2,6 +2,7 @@ public enum EnemyIntentType
 {
     Attack,
     Defend,
-    Buff,
-    Debuff
+    Debuff,
+    Heal,
+    SpecialAttack
 }
